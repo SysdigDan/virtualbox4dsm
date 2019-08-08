@@ -18,8 +18,8 @@ support_conf_folder="yes"
 changelog="Version: 5.1.28-114008"
 #reloadui="yes"
 displayname="VirtualBox"
-if [ "$(pkg_get_platform)" == "x86" ]; then
-arch="x86_64"
+if [ "$(pkg_get_platform)" == "apollolake" ]; then
+arch="apollolake"
 exclude_arch="x86 dockerx64 kvmx64"
 else
 arch="$(pkg_get_platform)"

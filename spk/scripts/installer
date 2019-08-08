@@ -18,7 +18,7 @@ DIST=$(uname -a | awk '{print $14}')
 preinst ()
 {
 	# check for supported kernel
-	if [[ ${KERNEL} != "3.10.105" ]]; then
+	if [[ ${KERNEL} != "4.4.59+" ]]; then
 		echo "Kernel ${KERNEL} is not supported"
 		exit 1
 	fi

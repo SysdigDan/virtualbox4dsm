@@ -81,23 +81,11 @@ start()
 	KERNEL=$(uname -a | awk '{print $3}')
 	DIST=$(uname -a | awk '{print $14}' | awk '{split($0,a,"_"); print a[2]}')
 	case $DIST in
-		bromolow)
-			PLATFORM=bromolow
-		;;
-		broadwell)
-			PLATFORM=broadwell
-		;;
-		braswell)
-			PLATFORM=braswell
-		;;
-		cedarview)
-			PLATFORM=cedarview
-		;;
-		avoton)
-			PLATFORM=avoton
+		apollolake)
+			PLATFORM=apollolake
 		;;
 		*)
-			PLATFORM=x86_64
+			PLATFORM=apollolake
 		;;
 	esac
 	

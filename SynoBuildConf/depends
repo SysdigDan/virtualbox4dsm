@@ -5,7 +5,7 @@
 
 [ReferenceOnly]
 # each line here is a project for reference only but no need to be built
-linux-3.10.x
+linux-4.4.x
 
 [default]
-all="6.1" 
+all="6.2" 

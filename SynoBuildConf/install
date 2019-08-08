@@ -24,19 +24,8 @@ Install() {
 
 	### what platform is this
 	case "$BUILD_TARGET" in
-		PPC_QORIQ)
-			echo "PPC_QORIQ is unsupported platform!"
-			exit 1
-			;;
-		X64)
-			PLATFORM="x86_64"
-			;;
-		BROMOLOWESM|BROMOLOW)
-			PLATFORM="bromolow"
-			;;
-		MARVELL_88F6281)
-			echo "MARVELL_88F6281 is unsupported platform!"
-			exit 1
+		APOLLOLAKE)
+			PLATFORM="apollolake"
 			;;
 		*)
 			echo "${BUILD_TARGET} unsupported platform! Using $PLATFORM_ABBR"
@@ -46,20 +35,8 @@ Install() {
 	 
 	### what kernel version is this
 	case "${DSM_SHLIB_MAJOR}.${DSM_SHLIB_MINOR}" in
-		5.1)
-			KERNEL="3.2.40"
-			;;
-		5.2)
-			KERNEL="3.10.35"
-			;;
-		6.0)
-			KERNEL="3.10.77"
-			;;
-		6.1)
-			KERNEL="3.10.102"
-			;;
 		6.2)
-			KERNEL="3.10.105"
+			KERNEL="4.4.59+"
 			;;
 		*)
 			echo "${DSM_SHLIB_MAJOR}.${DSM_SHLIB_MINOR} unknown verion of DSM, can't guess kernel version"
@@ -85,7 +62,8 @@ Install() {
 
 GenerateINFO() {
     ### Generate INFO file
-    ./INFO.sh "${DSM_SHLIB_MAJOR}.${DSM_SHLIB_MINOR}-${DSM_BUILD_NUM}" "${DATE}" > spk/INFO
+    #./INFO.sh "${DSM_SHLIB_MAJOR}.${DSM_SHLIB_MINOR}-${DSM_BUILD_NUM}" "${DATE}" > spk/INFO
+	./INFO.sh "6.2.2-24922" "${DATE}" > spk/INFO
     cp spk/INFO "${PKG_DIR}"
     cp spk/INFO INFO
 }
